@@ -25,7 +25,20 @@ export class EmployeeService {
   }
 
   /**
+   * Get Employee by Id
+   * @param id
+   */
+  public getEmployeeById(id: string): Observable<Employees> {
+    if (id) {
+      return this.http.get<Employees>(`${this.url}/${id}`)
+    } else {
+      return empty();
+    }
+  }
+
+  /**
    * Create a new employee
+   * @param employeesInfo
    */
   public createEmployee(employeesInfo: Employees): Observable<Employees> {
     if (employeesInfo) {
@@ -37,10 +50,12 @@ export class EmployeeService {
 
   /**
    * update an employee
+   * @param employeeId
+   * @param employeesInfo
    */
-  public updateEmployee(employeesInfo: Employees): Observable<Employees> {
-    if (employeesInfo) {
-      return this.http.put<Employees>(`${this.url}/update`, employeesInfo);
+  public updateEmployee(employeeId: string, employeesInfo: Employees): Observable<Employees> {
+    if (employeeId) {
+      return this.http.put<Employees>(`${this.url}/update/${employeeId}`, employeesInfo);
     } else {
       return empty();
     }
@@ -48,6 +63,7 @@ export class EmployeeService {
 
   /**
    * Deleting an employee
+   * @param employeesId
    */
   public deleteEmployee(employeesId: number): Observable<void>  {
     if (employeesId) {

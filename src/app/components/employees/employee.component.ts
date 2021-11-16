@@ -37,7 +37,7 @@ export class EmployeeComponent implements OnInit {
       )
   }
 
-  public onAddEmployee(addForm: NgForm): void {
+  /*public onAddEmployee(addForm: NgForm): void {
     // @ts-ignore
     document.getElementById('add-employee-form').click();
     this.employeesService.createEmployee(addForm.value).subscribe(
@@ -51,9 +51,9 @@ export class EmployeeComponent implements OnInit {
         addForm.reset();
       }
     );
-  }
+  }*/
 
-  public onUpdateEmployee(employee: Employees): void {
+ /* public onUpdateEmployee(employee: Employees): void {
     this.employeesService.updateEmployee(employee).subscribe(
       (response: Employees) => {
         console.log(response);
@@ -63,7 +63,7 @@ export class EmployeeComponent implements OnInit {
         alert(error.message);
       }
     );
-  }
+  }*/
 
   public onDeleteEmployee(employeeId: number): void {
     this.employeesService.deleteEmployee(employeeId).subscribe(
